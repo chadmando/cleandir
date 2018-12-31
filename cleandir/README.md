@@ -20,7 +20,7 @@ into subfolders based on their file type / extension.
 from a terminal or command prompt:
 
 ```angular2
-c:\> python cleandir.py
+c:\path\to\cleandir> python cleandir.py
 ```
 
 You are prompted to enter the directory. Just the directory not quotes required.
