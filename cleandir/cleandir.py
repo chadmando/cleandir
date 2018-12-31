@@ -53,7 +53,7 @@ def copy_files(files, ext_list, path):
         print(ext)
         if ext in ext_list:
             try:
-                shutil.copy2(os.path.join(path, file), os.path.join(path, str(ext).l/ower().strip(), file),
+                shutil.copy2(os.path.join(path, file), os.path.join(path, str(ext).lower().strip(), file),
                              follow_symlinks=False)
             except shutil.SameFileError:
                 print('an error occurred trying to move {}'.format(os.path.join(path, file)))
