@@ -50,7 +50,6 @@ def copy_files(files, ext_list, path):
     for file in files:
         base, sep, ext = file.partition('.')
         ext = str(ext).lower().strip()
-        print(ext)
         if ext in ext_list:
             try:
                 shutil.copy2(os.path.join(path, file), os.path.join(path, str(ext).lower().strip(), file),
