@@ -25,7 +25,7 @@ from a terminal or command prompt:
 c:\path\to\cleandir> python cleandir.py
 ```
 
-You are prompted to enter the directory. Just the directory not quotes required.
+You are prompted to enter the directory. Just the directory no quotes required.
 On Windows:
 ```angular2
 enter an absolute path to clean (default=C:\users\<username>\cleandir): C:\Users\<username>\Documents
