@@ -11,7 +11,7 @@ It has not been run using legacy python.
 ## What operating systems is cleandir made for?
 Because cleandir is written in pure python, it can but used anywhere python is installed.
 
-## What does it cleandir do?
+## What does cleandir do?
 cleandir attempts to organize a folder by grouping select files
 into subfolders based on their file type / extension.
 
