@@ -15,7 +15,6 @@ Because cleandir is written in pure python, it can but used anywhere python is i
 cleandir attempts to organize a folder by grouping select files
 into subfolders based on their file type / extension.
 
-
 ## How do you use cleandir?
 from a terminal or command prompt:
 
