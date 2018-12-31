@@ -5,7 +5,7 @@ _Disclaimer: This is a work in progress.  Use at your own risk
 A directory clean-up script written in pure python.
 
 ## Requirements
-Cleandir was wriiten in python 3.6.5 (macOS) and tested on Windows 10 x64 using pythong 3.7.1
+Cleandir was written in python 3.6.5 (macOS) and tested on Windows 10 x64 using python 3.7.1
 It has not been run using legacy python.
 
 ## What operating systems is cleandir made for?
