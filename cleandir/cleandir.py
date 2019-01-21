@@ -13,7 +13,7 @@ def main():
 
 def get_path():
     path = input('enter an absolute path to clean (default={}): '.format(Path.cwd()))
-    if os.path.isdir(path):
+    if Path.is_dir(path) and not 'exit':
         return path
     else:
         print('This is not a valid path. Please try again.')
@@ -21,10 +21,10 @@ def get_path():
 
 
 def list_dir(path):
-    in_dir = os.listdir(path)
+    in_dir = Path.iterdir(path)
     files_in_dir = []
     for item in in_dir:
-        if os.path.isfile(os.path.join(path, item)):
+        if item.is_file():
             files_in_dir.append(item)
 
     return files_in_dir
