@@ -13,15 +13,16 @@ def main():
 
 def get_path():
     input_path = input('enter an absolute path to clean (default={}): '.format(Path.cwd()))
-    if input_path is not 'exit':
-
-        if path.is_dir() and not 'exit':
-            return path
-        else:
-            print('This is not a valid path. Please try again.')
-            get_path()
-    else:
+    if input_path.lower() is 'exit':
         exit(code=0)
+
+    path = Path(input_path)
+    if path.is_dir():
+        return path
+    else:
+        print('This is not a valid path. Please try again.')
+        get_path()
+
 
 def list_dir(path):
     in_dir = Path.iterdir(path)
@@ -36,8 +37,8 @@ def list_dir(path):
 def get_extensions(list_of_files):
     extensions = set()
     for file in list_of_files:
-        if len(file.suffix) < 5:
-            extensions.add(file.suffix)
+        if len(file.suffix) < 6:
+            extensions.add((file.suffix).lstrip('.'))
 
     return extensions
 
