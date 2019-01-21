@@ -33,9 +33,8 @@ def list_dir(path):
 def get_extensions(list_of_files):
     extensions = set()
     for file in list_of_files:
-        holder = file.partition('.')
-        if holder[2] is not False and len(holder[2]) < 5:
-            extensions.add(str(holder[2]).lower().strip())
+        if len(file.suffix) < 5:
+            extensions.add(file.suffix)
 
     return extensions
 
