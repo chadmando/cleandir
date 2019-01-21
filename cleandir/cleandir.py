@@ -1,5 +1,6 @@
 import os
 import shutil
+from pathlib import Path
 
 
 def main():
@@ -11,7 +12,7 @@ def main():
 
 
 def get_path():
-    path = input('enter an absolute path to clean (default={}): '.format(os.getcwd()))
+    path = input('enter an absolute path to clean (default={}): '.format(Path.cwd()))
     if os.path.isdir(path):
         return path
     else:
