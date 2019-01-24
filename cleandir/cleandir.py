@@ -45,21 +45,22 @@ def get_extensions(list_of_files):
 
 def make_folders(path, subfolders):
     for item in subfolders:
-        if not os.path.isdir(os.path.join(path, item)):
-            os.mkdir(os.path.join(path, item))
-            print('created folder in path {}'.format(os.path.join(path, item)))
+        Path.mkdir(Path.joinpath(path, item), exist_ok=True)
+        print('created folder in path {}'.format(Path.joinpath(path, item)))
 
 
 def copy_files(files, ext_list, path):
     for file in files:
-        base, sep, ext = file.partition('.')
-        ext = str(ext).lower().strip()
+        ext = (file.suffix).lstrip('.')
+
         if ext in ext_list:
+            src = str(file)
+            d = Path(file.parents[0]).joinpath((str(ext)), (file.name()))
+            print(type(d))
             try:
-                shutil.copy2(os.path.join(path, file), os.path.join(path, str(ext).lower().strip(), file),
-                             follow_symlinks=False)
-            except shutil.SameFileError:
-                print('an error occurred trying to move {}'.format(os.path.join(path, file)))
+                shutil.copy2(src, dest, follow_symlinks=False)
+            except shutil.SameFileError as e:
+                print(e)
 
 
 if __name__ == '__main__':
