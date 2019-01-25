@@ -10,11 +10,13 @@ def test_get_path_abs(monkeypatch):
     assert str(abs_path) == "C:\\"
     assert abs_path.is_absolute()
 
+
 def test_get_path_rel(monkeypatch):
     """Test the get_path_to_clean func using a relative path"""
     monkeypatch.setattr("builtins.input", lambda x: r'.\cleandir\fortests')
     rel_path = cleandir.get_path_to_clean()
     assert str(rel_path) == r'cleandir\fortests'
+
 
 def test_get_path_exit(monkeypatch):
     """test that no input exits the program"""
@@ -25,7 +27,7 @@ def test_get_path_exit(monkeypatch):
         assert e == 'user initiated exit'
 
 
-def test_get_extensions():
+def test_get_extensions_on_fortests():
     """Test hte get extension function on the fortests directory.  It should return a set that includes csv and txt"""
     p = Path(r'.\cleandir\fortests')
     files_in_p = list()
@@ -35,4 +37,3 @@ def test_get_extensions():
     ext_list1 = ['csv', 'txt']
     ext_list2 = cleandir.get_extensions(files_in_p)
     assert set(ext_list1) == ext_list2
-
