@@ -10,10 +10,11 @@ def main():
     files = list_dir(path)
     ext = get_extensions(files)
     make_folders(path, ext)
-    copy_files(files, ext, path)
+    copy_files(files, ext)
 
 
 def get_path_to_clean():
+    """Prompt user for directory to clean.  'exit' will exit program.  No input selects the current working dir"""
     global path_to_clean
     input_path = input('enter an absolute path to clean, or "exit" (default path={}): '.format(Path.cwd()))
     if input_path.lower() == 'exit':
@@ -31,6 +32,7 @@ def get_path_to_clean():
 
 
 def list_dir(path):
+    """ Funtion take a Path object and returns all files in the folder."""
     in_dir = Path.iterdir(path)
     files_in_dir = []
     for item in in_dir:
@@ -41,6 +43,8 @@ def list_dir(path):
 
 
 def get_extensions(list_of_files):
+    """Function take a list of Path object and adds the file extenstion/suffix to a set. The set of extensions
+    are returned"""
     extensions = set()
     for file in list_of_files:
         if len(file.suffix) < 6:
@@ -50,12 +54,16 @@ def get_extensions(list_of_files):
 
 
 def make_folders(path, subfolders):
+    """Takes a Path object and a list of desired subfolders.  Creates the subfolders in the path. Nothing returned. """
     for item in subfolders:
         Path.mkdir(Path.joinpath(path, item), exist_ok=True)
         print('created folder in path {}'.format(Path.joinpath(path, item)))
 
 
-def copy_files(files, ext_list, path):
+def copy_files(files, ext_list):
+    """Takes a list of Path objects and a set of extensions. If the file's suffix is in the list, the file
+      is copied into a subfolder whose name is the extension. The result is all files in the list with the same extension
+      into subfolders based on extension. """
     for file in files:
         ext = (file.suffix).lstrip('.')
 
