@@ -106,3 +106,7 @@ venv.bak/
 
 # PyCharm
 .idea/
+
+# fortests subdir
+/cleandir/fortests/csv
+/cleandir/fortest/csv
