@@ -7,7 +7,7 @@ def main():
     based on common file extension contained within.  A subfolder is created for each extension and files are moved or
     copied into the subfolders."""
     path = get_path_to_clean()
-    files = list_dir(path)
+    files = [i for i in path.iterdir() if i.is_file()]
     ext = get_extensions(files)
     make_folders(path, ext)
     copy_files(files, ext)
@@ -31,20 +31,9 @@ def get_path_to_clean():
         get_path_to_clean()
 
 
-def list_dir(path):
-    """ Funtion take a Path object and returns all files in the folder."""
-    in_dir = Path.iterdir(path)
-    files_in_dir = []
-    for item in in_dir:
-        if item.is_file():
-            files_in_dir.append(item)
-
-    return files_in_dir
-
-
 def get_extensions(list_of_files):
-    """Function take a list of Path object and adds the file extenstion/suffix to a set. The set of extensions
-    are returned"""
+    """Function take a list of Path file objects and adds the file extenstion/suffix to a set. The set of extensions
+    is returned"""
     extensions = set()
     for file in list_of_files:
         if len(file.suffix) < 6:
