@@ -3,8 +3,8 @@ from pathlib import Path
 
 
 def main():
-    """Program prompts user for an folder or directory to clean. Get the contents of the folder and created subfolders
-    based on common file extension contained within.  A subfolder is created for each extension and files are moved or
+    """Program prompts user for a folder or directory to clean. Gets the contents of the folder and creates subfolders
+    based on common file extensions contained within.  A subfolder is created for each extension and files are moved or
     copied into the subfolders."""
     path = get_path_to_clean()
     files = [i for i in path.iterdir() if i.is_file()]
@@ -17,13 +17,16 @@ def get_path_to_clean():
     """Prompt user for directory to clean.  'exit' will exit program.  No input selects the current working dir"""
     global path_to_clean
     input_path = input('enter an absolute path to clean, or "exit" (default path={}): '.format(Path.cwd()))
+
     if input_path.lower() == 'exit':
         exit(code='user initiated exit')
+
     if input_path == '':
         path_to_clean = Path.cwd().absolute()
 
     path_to_clean = Path(input_path)
     print("You want to clean this folder: {}".format(str(path_to_clean)))
+
     if path_to_clean.is_dir():
         return path_to_clean
     else:
