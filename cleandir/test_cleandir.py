@@ -3,6 +3,7 @@ from pathlib import Path
 from cleandir import cleandir
 
 
+@pytest.mark.skip(reason=​'integration test'​)
 def test_get_path_abs(monkeypatch):
     """Test the get_path_to_clean func using an absolute path"""
     monkeypatch.setattr("builtins.input", lambda x: 'C:\\')
@@ -10,7 +11,7 @@ def test_get_path_abs(monkeypatch):
     assert str(abs_path) == "C:\\"
     assert abs_path.is_absolute()
 
-
+@pytest.mark.skip(reason=​'integration test'​)
 def test_get_path_rel(monkeypatch):
     """Test the get_path_to_clean func using a relative path"""
     monkeypatch.setattr("builtins.input", lambda x: r'.\cleandir\fortests')
